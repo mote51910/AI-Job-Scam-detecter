@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+nltk
+joblib
+imbalanced-learn
+fastapi
+uvicorn[standard]
+streamlit
+requests
+pydantic
+pytest
