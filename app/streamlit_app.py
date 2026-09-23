@@ -23,7 +23,7 @@ if st.button("Analyze", type="primary"):
     else:
         with st.spinner("Analyzing..."):
             try:
-                response = requests.post("https://ai-job-scam-detecter.onrender.com/predict", json=type, timeout=60)
+                response = requests.post(API_URL, json={"text": job_text}, timeout=60)
                 result = response.json()
 
                 score = result['risk_score']
