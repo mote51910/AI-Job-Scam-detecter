@@ -7,9 +7,9 @@ st.title("🛡️ AI Job Scam & Risk Detector")
 st.write("Paste a job posting below to check if it looks like a scam.")
 
 try:
-    API_URL = st.secrets.get("API_URL", "http://localhost:8000/predict")
+    API_URL = st.secrets.get("API_URL", "https://ai-job-scam-detecter.onrender.com/predict")
 except Exception:
-    API_URL = "http://localhost:8000/predict"
+    API_URL = "https://ai-job-scam-detecter.onrender.com/predict"
 
 job_text = st.text_area(
     "Job Posting Text",
@@ -23,7 +23,7 @@ if st.button("Analyze", type="primary"):
     else:
         with st.spinner("Analyzing..."):
             try:
-                response = requests.post(API_URL, json={"text": job_text}, timeout=15)
+                response = requests.post("https://ai-job-scam-detecter.onrender.com/predict", json=data, timeout=60)
                 result = response.json()
 
                 score = result['risk_score']
